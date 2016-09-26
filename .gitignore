@@ -1,0 +1,39 @@
+# Delphi compiler-generated binaries (safe to delete)
+*.exe
+*.dll
+*.bpl
+*.bpi
+*.dcp
+*.so
+*.apk
+*.drc
+*.map
+*.dres
+*.rsm
+*.tds
+*.dcu
+*.lib
+*.a
+*.o
+*.ocx
+
+# Delphi local files (user-specific info)
+*.local
+*.identcache
+*.projdata
+*.tvsconfig
+*.dsk
+
+# Delphi history and backups
+__history/
+*.~*
+
+# User-specific settings (e.g. paths)
+userprefs.bat
+
+# Temporary batch file copies
+*.tmp.bat
+
+# Per-project compiler options created by Delphi
+# A common .cfg file is always used instead for command-line compile
+SmartClose.cfg
