@@ -1,0 +1,181 @@
+object frmMain: TfrmMain
+  Left = 837
+  Top = 386
+  BorderIcons = []
+  BorderStyle = bsSingle
+  Caption = 'Welcome to SmartClose'
+  ClientHeight = 362
+  ClientWidth = 414
+  Color = clBtnFace
+  Font.Charset = ANSI_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  KeyPreview = True
+  OldCreateOrder = True
+  Position = poScreenCenter
+  Scaled = False
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  OnHide = FormHide
+  OnKeyDown = FormKeyDown
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object img: TImage
+    Left = 0
+    Top = 0
+    Width = 414
+    Height = 77
+    Align = alTop
+    Stretch = True
+  end
+  object Status: TStatusBar
+    Left = 0
+    Top = 342
+    Width = 414
+    Height = 20
+    Panels = <
+      item
+        Alignment = taRightJustify
+        Text = 'SmartClose version 1.0'
+        Width = 50
+      end>
+    SimplePanel = False
+    SizeGrip = False
+  end
+  object paMain: TPanel
+    Left = 0
+    Top = 77
+    Width = 414
+    Height = 265
+    BevelOuter = bvNone
+    TabOrder = 0
+    object GroupBox: TGroupBox
+      Left = 16
+      Top = 12
+      Width = 384
+      Height = 241
+      Caption = ' What do you want to do? '
+      TabOrder = 0
+      object Label1: TLabel
+        Left = 12
+        Top = 16
+        Width = 326
+        Height = 13
+        Caption = 
+          '(Hover the cursor over a button to get a more detailed descripti' +
+          'on.)'
+        ParentShowHint = False
+        ShowHint = False
+      end
+      object tbMain: TToolBar
+        Left = 12
+        Top = 39
+        Width = 361
+        Height = 194
+        Align = alNone
+        ButtonHeight = 38
+        ButtonWidth = 299
+        EdgeBorders = []
+        Flat = True
+        HotImages = HotImages
+        Images = Images
+        Indent = 31
+        List = True
+        ParentShowHint = False
+        ShowCaptions = True
+        ShowHint = True
+        TabOrder = 0
+        object tbCloseProgs: TToolButton
+          Left = 31
+          Top = 0
+          Hint = 
+            'Starts the Close Programs-wizard. This wizard helps you through ' +
+            'the process of saving the current state of the system (to restor' +
+            'e later with the Restore-wizard) and ending all the currently ru' +
+            'nning applications together with other possible options.'#13#10'[F5]'
+          Caption = 'Create a system snapshot and close all programs'
+          ImageIndex = 0
+          Wrap = True
+          OnClick = tbCloseProgsClick
+        end
+        object tbRestoreProgs: TToolButton
+          Left = 31
+          Top = 38
+          Hint = 
+            'Click this button to start the Restore-wizard. This wizard allow' +
+            's you to restore your system to the state it was before you used' +
+            ' the Close Programs-wizard. It will restart all the applications' +
+            ' the Close Programs-wizard ended, re-open the Explorer-windows t' +
+            'hat were open, re-set the screen saver etc.'#13#10'[F6]'
+          Caption = 'Restore a previously taken system snapshot'
+          Wrap = True
+          OnClick = tbRestoreProgsClick
+        end
+        object tbSettings: TToolButton
+          Left = 31
+          Top = 76
+          Hint = 
+            'SmartClose is a highly configurable program. With this button, y' +
+            'ou can open the SmartClose Configuration-window, that allows you' +
+            ' to view and change all the settings of SmartClose.'#13#10'[F7]'
+          Caption = 'View and/or change all the settings of SmartClose      '
+          Wrap = True
+          OnClick = tbSettingsClick
+        end
+        object tbInfo: TToolButton
+          Left = 31
+          Top = 114
+          Hint = 
+            'Click this button to open a window that shows more information a' +
+            'bout SmartClose like version, author, copyright, contact info, p' +
+            'rogram website, expressions of thanks...'#13#10'[F8]'
+          Caption = 'View program information about SmartClose'
+          Wrap = True
+          OnClick = tbInfoClick
+        end
+        object tbClose: TToolButton
+          Left = 31
+          Top = 152
+          Hint = 'Click here to exit SmartClose.'#13#10'[Esc]'
+          Caption = 'Exit SmartClose'
+          OnClick = tbCloseClick
+        end
+      end
+    end
+  end
+  object DanHint: TDanHint
+    HintDirection = hdDownRight
+    HintColor = clInfoBk
+    HintShadowColor = clBlack
+    HintRadius = 18
+    HintWidth = 300
+    HintFont.Charset = ANSI_CHARSET
+    HintFont.Color = clBlack
+    HintFont.Height = -11
+    HintFont.Name = 'Tahoma'
+    HintFont.Style = []
+    HintPauseTime = 500
+    Left = 65524
+    Top = 292
+  end
+  object ThemeManager1: TThemeManager
+    Options = [toAllowNonClientArea, toAllowControls, toAllowWebContent, toSubclassAnimate, toSubclassButtons, toSubclassCheckListbox, toSubclassDBLookup, toSubclassFrame, toSubclassGroupBox, toSubclassListView, toSubclassPanel, toSubclassTabSheet, toSubclassSpeedButtons, toSubclassStatusBar, toSubclassTrackBar, toSubclassWinControl, toResetMouseCapture, toSetTransparency]
+    Left = 65520
+    Top = 237
+  end
+  object Images: TImageList
+    Height = 32
+    Width = 32
+    Left = 65524
+    Top = 149
+  end
+  object HotImages: TImageList
+    Height = 32
+    Width = 32
+    Left = 65524
+    Top = 113
+  end
+end

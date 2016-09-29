@@ -1,0 +1,815 @@
+object frmCloseWiz: TfrmCloseWiz
+  Left = 637
+  Top = 390
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsSingle
+  Caption = 'SmartClose - Close Programs Wizard'
+  ClientHeight = 358
+  ClientWidth = 495
+  Color = clBtnFace
+  Font.Charset = ANSI_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = True
+  Position = poScreenCenter
+  Scaled = False
+  OnClose = FormClose
+  OnCloseQuery = FormCloseQuery
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Bevel: TBevel
+    Left = -8
+    Top = 314
+    Width = 503
+    Height = 2
+    Shape = bsTopLine
+  end
+  object Notebook1: TNotebook
+    Left = -1
+    Top = 0
+    Width = 496
+    Height = 314
+    Color = clBtnFace
+    PageIndex = 2
+    ParentColor = False
+    TabOrder = 0
+    object TPage
+      Left = 0
+      Top = 0
+      Caption = 'Welcome'
+      object imgPicture: TImage
+        Left = 0
+        Top = 0
+        Width = 164
+        Height = 314
+        Align = alLeft
+        Center = True
+        Stretch = True
+      end
+      object paWelcome: TPanel
+        Left = 164
+        Top = 0
+        Width = 332
+        Height = 314
+        BevelOuter = bvNone
+        Color = clWindow
+        TabOrder = 0
+        object WelcomeLabel1: TLabel
+          Left = 12
+          Top = 16
+          Width = 301
+          Height = 53
+          AutoSize = False
+          Caption = 'Welcome to the SmartClose'#13#10'Close Programs Wizard'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -16
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+          ShowAccelChar = False
+          WordWrap = True
+        end
+        object WelcomeLabel2: TLabel
+          Left = 12
+          Top = 72
+          Width = 301
+          Height = 65
+          AutoSize = False
+          Caption = 'Txt1'
+          ShowAccelChar = False
+          WordWrap = True
+        end
+        object WelcomeLabel3: TLabel
+          Left = 12
+          Top = 148
+          Width = 301
+          Height = 81
+          AutoSize = False
+          Caption = 'Txt2'
+          ShowAccelChar = False
+          WordWrap = True
+        end
+        object WelcomeLabel5: TLabel
+          Left = 12
+          Top = 236
+          Width = 301
+          Height = 13
+          AutoSize = False
+          Caption = 'Click Next to continue, or Cancel to exit the Wizard.'
+          ShowAccelChar = False
+          WordWrap = True
+        end
+        object chkNoIntro: TCheckBox
+          Left = 12
+          Top = 272
+          Width = 277
+          Height = 17
+          Caption = '&Don'#39't show this introduction page again'
+          TabOrder = 0
+        end
+      end
+    end
+    object TPage
+      Left = 0
+      Top = 0
+      Caption = 'Main'
+      object Bevel1: TBevel
+        Left = 0
+        Top = 58
+        Width = 499
+        Height = 3
+        Shape = bsTopLine
+      end
+      object PnlMain: TPanel
+        Left = 0
+        Top = 0
+        Width = 497
+        Height = 58
+        BevelOuter = bvNone
+        Color = clWindow
+        TabOrder = 0
+        object lblCaption: TLabel
+          Left = 24
+          Top = 10
+          Width = 405
+          Height = 13
+          AutoSize = False
+          Caption = 'Caption'
+        end
+        object lblDescription: TLabel
+          Left = 40
+          Top = 26
+          Width = 389
+          Height = 29
+          AutoSize = False
+          Caption = 'Description'
+          ShowAccelChar = False
+          WordWrap = True
+        end
+        object imgSmall: TImage
+          Left = 440
+          Top = 1
+          Width = 55
+          Height = 55
+          Center = True
+          Stretch = True
+        end
+      end
+      object Notebook2: TNotebook
+        Left = 4
+        Top = 64
+        Width = 485
+        Height = 245
+        TabOrder = 1
+        object TPage
+          Left = 0
+          Top = 0
+          Caption = 'Tasks'
+          object SelectComponentsLabel: TLabel
+            Left = 76
+            Top = 8
+            Width = 373
+            Height = 41
+            AutoSize = False
+            Caption = 
+              'Select the tasks you would like to be performed by the wizard, t' +
+              'hen click Next.'
+            ShowAccelChar = False
+            WordWrap = True
+          end
+          object Label1: TLabel
+            Left = 36
+            Top = 52
+            Width = 75
+            Height = 13
+            Caption = '&Available tasks:'
+            FocusControl = lvTasks
+          end
+          object imgTasks: TImage
+            Left = 36
+            Top = 8
+            Width = 32
+            Height = 32
+            AutoSize = True
+            Center = True
+            Transparent = True
+          end
+          object fraDescription: TGroupBox
+            Left = 276
+            Top = 56
+            Width = 175
+            Height = 181
+            Caption = 'Description'
+            TabOrder = 1
+            object lblTip: TLabel
+              Left = 12
+              Top = 18
+              Width = 157
+              Height = 151
+              AutoSize = False
+              Caption = 
+                '(Hover the cursor over an item to see a detailed description of ' +
+                'the task here.)'
+              WordWrap = True
+            end
+            object lblTaskDescription: TLabel
+              Left = 12
+              Top = 54
+              Width = 157
+              Height = 121
+              AutoSize = False
+              Caption = 'Desc'
+              Visible = False
+              WordWrap = True
+            end
+            object imgTask: TImage
+              Left = 12
+              Top = 16
+              Width = 32
+              Height = 32
+              Center = True
+              Visible = False
+            end
+            object lblTaskTitle: TLabel
+              Left = 52
+              Top = 16
+              Width = 117
+              Height = 27
+              AutoSize = False
+              Caption = 'Title'
+              Visible = False
+              WordWrap = True
+            end
+          end
+          object lvTasks: TExtChkListView
+            Left = 36
+            Top = 68
+            Width = 229
+            Height = 169
+            CheckBoxOptions.CheckOnItemClick = True
+            Columns = <
+              item
+                Width = -2
+                WidthType = (
+                  -2)
+              end>
+            ExtendedStyles = [lvxCheckboxes, lvxTrackSelect, lvxFullRowSelect, lvxOneClickActivate, lvxUnderlineHot, lvxLabelTip]
+            HoverTime = 1
+            NoColumnResize = True
+            SaveSettings.SaveColumnSizes = False
+            SaveSettings.SaveCurrentSort = False
+            SaveSettings.SaveViewStyle = False
+            SaveSettings.SaveColumnOrder = False
+            ColumnsFormat = <>
+            OnHotTrack = lvTasksHotTrack
+            AutoSortStyle = assDefault
+            AutoResort = False
+            AutoSortAscending = False
+            ColumnClick = False
+            ReadOnly = True
+            OnChange = lvTasksChange
+            OnMouseMove = lvTasksMouseMove
+            ParentShowHint = False
+            ShowHint = False
+            ShowColumnHeaders = False
+            TabOrder = 0
+            ViewStyle = vsReport
+            OnKeyDown = lvTasksKeyDown
+            SmallImages = imgsTasks
+            DoubleBuffered = False
+          end
+        end
+        object TPage
+          Left = 0
+          Top = 0
+          Caption = 'Protected Programs'
+          object imgProtect: TImage
+            Left = 36
+            Top = 8
+            Width = 32
+            Height = 32
+            Center = True
+          end
+          object Label2: TLabel
+            Left = 76
+            Top = 8
+            Width = 373
+            Height = 53
+            AutoSize = False
+            Caption = 
+              'SmartClose will never attempt to close or kill a protected progr' +
+              'am. Critical programs (with a red stop sign) cannot be disabled,' +
+              ' edited or removed, because they are critical for the well-funct' +
+              'ioning of Windows.'
+            WordWrap = True
+          end
+          object Label4: TLabel
+            Left = 36
+            Top = 62
+            Width = 99
+            Height = 13
+            Caption = '&Protected programs:'
+            FocusControl = lvProgs
+          end
+          object btnAdd: TButton
+            Left = 362
+            Top = 76
+            Width = 75
+            Height = 21
+            Caption = '&Add...'
+            TabOrder = 1
+            OnClick = btnAddClick
+          end
+          object btnEdit: TButton
+            Left = 362
+            Top = 100
+            Width = 75
+            Height = 21
+            Caption = '&Edit...'
+            TabOrder = 2
+            OnClick = btnEditClick
+          end
+          object btnRemove: TButton
+            Left = 362
+            Top = 124
+            Width = 75
+            Height = 21
+            Caption = '&Remove'
+            TabOrder = 3
+            OnClick = btnRemoveClick
+          end
+          object chkHideCritical: TCheckBox95
+            Left = 362
+            Top = 150
+            Width = 87
+            Height = 37
+            Caption = 'Hide &Critical Programs'
+            TabOrder = 4
+            OnClick = chkHideCriticalClick
+            WordWrap = True
+          end
+          object chkHideUnsafe: TCheckBox95
+            Left = 362
+            Top = 186
+            Width = 87
+            Height = 37
+            Caption = 'Hide &Unsafe Programs'
+            TabOrder = 5
+            OnClick = chkHideCriticalClick
+            WordWrap = True
+          end
+          object lvProgs: TExtChkListView
+            Left = 36
+            Top = 78
+            Width = 317
+            Height = 159
+            OnItemChecking = lvProgsItemChecking
+            Columns = <
+              item
+                Caption = 'Filename'
+                Width = -2
+                WidthType = (
+                  -2)
+              end
+              item
+                Alignment = taRightJustify
+                Caption = 'Type'
+                Width = -2
+                WidthType = (
+                  -2)
+              end>
+            HideSelection = False
+            ExtendedStyles = [lvxCheckboxes, lvxFullRowSelect, lvxLabelTip]
+            HoverTime = 0
+            NoColumnResize = False
+            SaveSettings.AutoSave = True
+            SaveSettings.SaveColumnSizes = False
+            SaveSettings.SaveViewStyle = False
+            SaveSettings.SaveColumnOrder = False
+            ColumnsFormat = <>
+            AutoColumnSort = acsSortToggle
+            OnClick = lvProgsClick
+            OnDblClick = lvProgsDblClick
+            ReadOnly = True
+            OnChange = lvProgsChange
+            TabOrder = 0
+            ViewStyle = vsReport
+            SmallImages = imgsProgs
+            DoubleBuffered = False
+          end
+        end
+        object TPage
+          Left = 0
+          Top = 0
+          Caption = 'SnapShot'
+          object InfoBeforeClickLabel: TLabel
+            Left = 76
+            Top = 8
+            Width = 373
+            Height = 41
+            AutoSize = False
+            Caption = 
+              'SmartClose can save the current system state to a system snapsho' +
+              't. Please select the location where you would like SmartClose to' +
+              ' create the system snapshot file:'
+            ShowAccelChar = False
+            WordWrap = True
+          end
+          object imgSnap: TImage
+            Left = 36
+            Top = 8
+            Width = 32
+            Height = 32
+            AutoSize = True
+            Center = True
+          end
+          object Label5: TLabel
+            Left = 56
+            Top = 80
+            Width = 238
+            Height = 13
+            Caption = '(This option doesn'#39't require any further settings.)'
+          end
+          object Label6: TLabel
+            Left = 56
+            Top = 132
+            Width = 34
+            Height = 13
+            Caption = 'Na&me: '
+            FocusControl = txtName
+          end
+          object Label7: TLabel
+            Left = 56
+            Top = 188
+            Width = 49
+            Height = 13
+            Caption = 'Filen&ame: '
+          end
+          object optDefault: TRadioButton
+            Left = 36
+            Top = 64
+            Width = 345
+            Height = 13
+            Caption = 'Save the system snapshot to the &default location'
+            Checked = True
+            TabOrder = 0
+            TabStop = True
+            OnClick = optLocationClick
+          end
+          object optName: TRadioButton
+            Tag = 1
+            Left = 36
+            Top = 112
+            Width = 337
+            Height = 13
+            Caption = 'Save the system snapshot under a &custom name'
+            TabOrder = 1
+            OnClick = optLocationClick
+          end
+          object txtName: TEdit
+            Left = 108
+            Top = 128
+            Width = 160
+            Height = 21
+            TabOrder = 2
+            Text = 'txtName'
+            OnChange = txtNameChange
+          end
+          object optFilename: TRadioButton
+            Tag = 2
+            Left = 36
+            Top = 168
+            Width = 337
+            Height = 13
+            Caption = 'Save the system snapshot to a custom &file'
+            TabOrder = 3
+            OnClick = optLocationClick
+          end
+          object txtFilename: TEdit
+            Left = 108
+            Top = 184
+            Width = 273
+            Height = 20
+            AutoSize = False
+            Color = clBtnFace
+            ReadOnly = True
+            TabOrder = 4
+            Text = 'txtFilename'
+          end
+          object btnBrowse: TButton
+            Left = 384
+            Top = 184
+            Width = 65
+            Height = 20
+            Caption = 'Br&owse...'
+            TabOrder = 5
+            OnClick = btnBrowseClick
+          end
+        end
+        object TPage
+          Left = 0
+          Top = 0
+          Caption = 'Ready'
+          object ReadyLabel: TLabel
+            Left = 36
+            Top = 8
+            Width = 413
+            Height = 29
+            AutoSize = False
+            Caption = 
+              'Click "Start" to start the SmartClose Process, or "Back" if you ' +
+              'want to review or change any settings.'
+            ShowAccelChar = False
+            WordWrap = True
+          end
+          object txtSummary: TMemo
+            Left = 36
+            Top = 40
+            Width = 413
+            Height = 197
+            Color = clBtnFace
+            ReadOnly = True
+            ScrollBars = ssVertical
+            TabOrder = 0
+          end
+        end
+        object TPage
+          Left = 0
+          Top = 0
+          Caption = 'Process'
+          object Label8: TLabel
+            Left = 28
+            Top = 204
+            Width = 86
+            Height = 13
+            Caption = 'Overall Progress: '
+          end
+          object lblCurrent: TLabel
+            Left = 28
+            Top = 164
+            Width = 37
+            Height = 13
+            Caption = 'Current'
+          end
+          object lblCount: TLabel
+            Left = 429
+            Top = 164
+            Width = 12
+            Height = 13
+            Alignment = taRightJustify
+            Caption = '28'
+            Visible = False
+          end
+          object lblDebug: TLabel
+            Left = 381
+            Top = 204
+            Width = 60
+            Height = 13
+            Alignment = taRightJustify
+            Caption = 'Debug Mode'
+            Visible = False
+          end
+          object TotalProgress: TdfsExtProgressBar
+            Left = 28
+            Top = 220
+            Width = 413
+            Height = 17
+            Min = 0
+            Max = 100
+            Smooth = True
+            Step = 1
+            TabOrder = 0
+          end
+          object CurrentProgress: TdfsExtProgressBar
+            Left = 28
+            Top = 180
+            Width = 413
+            Height = 17
+            Min = 0
+            Max = 100
+            Smooth = True
+            Step = 1
+            TabOrder = 1
+          end
+          object ProgressNotebook: TNotebook
+            Left = 20
+            Top = 4
+            Width = 429
+            Height = 157
+            PageIndex = 1
+            TabOrder = 2
+            object TPage
+              Left = 0
+              Top = 0
+              Caption = 'Progress'
+              object StatusLabel: TLabel
+                Left = 72
+                Top = 20
+                Width = 260
+                Height = 16
+                AutoSize = False
+                Caption = 'SmartClose Progress:'
+                ShowAccelChar = False
+              end
+              object lblTask: TLabel
+                Left = 96
+                Top = 49
+                Width = 309
+                Height = 13
+                AutoSize = False
+                Caption = 'Task 1'
+              end
+              object lblArrow: TLabel
+                Left = 72
+                Top = 48
+                Width = 16
+                Height = 16
+                Caption = '4'
+                Font.Charset = SYMBOL_CHARSET
+                Font.Color = clWindowText
+                Font.Height = -16
+                Font.Name = 'Marlett'
+                Font.Style = []
+                ParentFont = False
+                Visible = False
+              end
+              object icoProcess: TIconView
+                Left = 16
+                Top = 4
+                Width = 48
+                Height = 48
+                TabOrder = 0
+              end
+            end
+            object TPage
+              Left = 0
+              Top = 0
+              Caption = 'Progs'
+              object lstProgs: TListView
+                Left = 8
+                Top = 3
+                Width = 413
+                Height = 150
+                Columns = <
+                  item
+                    Caption = 'Program Name'
+                    Width = -2
+                    WidthType = (
+                      -2)
+                  end
+                  item
+                    Alignment = taRightJustify
+                    Caption = 'Status'
+                    Width = -2
+                    WidthType = (
+                      -2)
+                  end>
+                ColumnClick = False
+                HotTrackStyles = []
+                ReadOnly = True
+                RowSelect = True
+                ParentShowHint = False
+                ShowHint = False
+                SmallImages = imgsStates
+                SortType = stBoth
+                TabOrder = 0
+                ViewStyle = vsReport
+              end
+            end
+          end
+        end
+      end
+    end
+    object TPage
+      Left = 0
+      Top = 0
+      Caption = 'Finished'
+      object paFinished: TPanel
+        Left = 0
+        Top = 0
+        Width = 496
+        Height = 314
+        BevelOuter = bvNone
+        Color = clWindow
+        TabOrder = 0
+        object FinishedLabel: TLabel
+          Left = 176
+          Top = 16
+          Width = 301
+          Height = 29
+          AutoSize = False
+          Caption = 
+            'The Close Programs Wizard of SmartClose has successfully finishe' +
+            'd executing the specified tasks.'
+          ShowAccelChar = False
+          WordWrap = True
+        end
+        object Label9: TLabel
+          Left = 176
+          Top = 88
+          Width = 301
+          Height = 16
+          AutoSize = False
+          Caption = 'Click "Finish" to exit the Close Programs Wizard.'
+          ShowAccelChar = False
+          WordWrap = True
+        end
+        object lblDetails: TLabel
+          Left = 176
+          Top = 44
+          Width = 44
+          Height = 13
+          Cursor = crHandPoint
+          Caption = 'Details...'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlue
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = [fsUnderline]
+          ParentColor = False
+          ParentFont = False
+          OnClick = lblDetailsClick
+        end
+      end
+    end
+  end
+  object BackButton: TButton
+    Left = 248
+    Top = 326
+    Width = 75
+    Height = 23
+    Caption = '< &Back'
+    TabOrder = 1
+    OnClick = BackButtonClick
+  end
+  object NextButton: TButton
+    Left = 323
+    Top = 326
+    Width = 75
+    Height = 23
+    Caption = '&Next >'
+    Default = True
+    TabOrder = 2
+    OnClick = NextButtonClick
+  end
+  object CancelButton: TButton
+    Left = 408
+    Top = 326
+    Width = 75
+    Height = 23
+    Cancel = True
+    Caption = 'Cancel'
+    TabOrder = 3
+    OnClick = CancelButtonClick
+  end
+  object imgsProgs: TImageList
+    BlendColor = clBtnText
+    BkColor = clBlack
+    Left = 65535
+    Top = 332
+  end
+  object SaveDialog: TAgSaveDialog
+    Options = [ofOverwritePrompt, ofHideReadOnly]
+    Title = 'SmartClose - Save system snapshot'
+    ShowPlacesBar = True
+    Left = 27
+    Top = 332
+  end
+  object imgsStates: TImageList
+    Left = 60
+    Top = 332
+  end
+  object tmrCloseTime: TTimer
+    Enabled = False
+    OnTimer = tmrCloseTimeTimer
+    Left = 87
+    Top = 332
+  end
+  object ThemeManager1: TThemeManager
+    Left = 116
+    Top = 332
+  end
+  object imgsTasks: TImageList
+    Left = 144
+    Top = 336
+  end
+  object imgsTasksLarge: TImageList
+    Height = 32
+    Width = 32
+    Left = 172
+    Top = 336
+  end
+  object tmrCapture: TTimer
+    Enabled = False
+    Interval = 100
+    OnTimer = tmrCaptureTimer
+    Left = 204
+    Top = 336
+  end
+end

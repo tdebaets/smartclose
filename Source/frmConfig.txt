@@ -1,0 +1,523 @@
+object Config: TConfig
+  Left = 692
+  Top = 345
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsSingle
+  Caption = 'SmartClose Settings'
+  ClientHeight = 396
+  ClientWidth = 517
+  Color = clBtnFace
+  Font.Charset = ANSI_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = True
+  Position = poScreenCenter
+  Scaled = False
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 32
+    Top = 372
+    Width = 88
+    Height = 13
+    Caption = 'For Help, press F1'
+    Visible = False
+  end
+  object imgHelp: TImage
+    Left = 12
+    Top = 370
+    Width = 16
+    Height = 16
+    Center = True
+    Transparent = True
+    Visible = False
+  end
+  object Pages: TPage95Control
+    Left = 12
+    Top = 12
+    Width = 493
+    Height = 345
+    ActivePage = shGeneral
+    Images = Images
+    HotTrack = False
+    TabInactiveColor = clBtnFace
+    TabInactiveFont.Charset = DEFAULT_CHARSET
+    TabInactiveFont.Color = clWindowText
+    TabInactiveFont.Height = -11
+    TabInactiveFont.Name = 'MS Sans Serif'
+    TabInactiveFont.Style = []
+    TabOrder = 0
+    UseMSDrawing = True
+    object shGeneral: TTab95Sheet
+      Caption = 'General'
+      GripAlign = gaLeft
+      ImageIndex = -1
+      StaticPageIndex = -1
+      TabVisible = True
+      object CaptionBevel2: TCaptionBevel
+        Left = 28
+        Top = 132
+        Width = 445
+        Height = 13
+        Caption = 'System Snapshots'
+        Transparent = True
+      end
+      object CaptionBevel1: TCaptionBevel
+        Left = 28
+        Top = 12
+        Width = 445
+        Height = 13
+        Caption = 'Shortcuts'
+        Transparent = True
+      end
+      object Label2: TLabel
+        Left = 16
+        Top = 36
+        Width = 103
+        Height = 13
+        Caption = 'Create a &shortcut in: '
+      end
+      object Label3: TLabel
+        Left = 16
+        Top = 64
+        Width = 80
+        Height = 13
+        Caption = 'Shortcut &Target:'
+      end
+      object Label4: TLabel
+        Left = 16
+        Top = 188
+        Width = 118
+        Height = 13
+        Caption = 'System Snapshot &folder:'
+      end
+      object Label5: TLabel
+        Left = 24
+        Top = 236
+        Width = 445
+        Height = 29
+        AutoSize = False
+        Caption = 
+          'All snapshots created by SmartClose will be placed in this folde' +
+          'r, unless you explicitly specify another location for the snapsh' +
+          'ot.'
+        WordWrap = True
+      end
+      object imgLink: TImage
+        Left = 8
+        Top = 12
+        Width = 16
+        Height = 16
+        Center = True
+        Transparent = True
+      end
+      object btnBrowse: TButton
+        Left = 398
+        Top = 32
+        Width = 75
+        Height = 21
+        Caption = '&Browse...'
+        TabOrder = 1
+        OnClick = btnBrowseClick
+      end
+      object btnCreate: TButton
+        Left = 360
+        Top = 92
+        Width = 113
+        Height = 21
+        Caption = 'Create S&hortcut'
+        TabOrder = 3
+        OnClick = btnCreateClick
+      end
+      object txtSnapPath: TEdit
+        Left = 24
+        Top = 208
+        Width = 369
+        Height = 21
+        TabOrder = 5
+        OnChange = UpdateApply
+        OnEnter = txtSnapPathEnter
+        OnExit = txtSnapPathExit
+      end
+      object btnSnapBrowse: TButton
+        Left = 398
+        Top = 208
+        Width = 75
+        Height = 21
+        Caption = 'B&rowse...'
+        TabOrder = 6
+        OnClick = btnSnapBrowseClick
+      end
+      object chkAssoc: TCheckBox
+        Left = 16
+        Top = 160
+        Width = 377
+        Height = 13
+        Caption = 'Ass&ociate System Snapshot files (*.scss) with SmartClose'
+        TabOrder = 4
+        OnClick = UpdateApply
+      end
+      object cmbTarget: TComboBoxEx
+        Left = 124
+        Top = 60
+        Width = 269
+        Height = 22
+        Style = csDropDownList
+        Sorted = False
+        TabOrder = 2
+      end
+      object cmbFolder: TComboBoxEx
+        Left = 124
+        Top = 32
+        Width = 269
+        Height = 22
+        Sorted = False
+        TabOrder = 0
+      end
+      object icoSnap: TIconView
+        Left = 8
+        Top = 132
+        Width = 16
+        Height = 16
+        TabOrder = 7
+        Transparent = True
+      end
+    end
+    object shCloseProgs: TTab95Sheet
+      Caption = 'Close Programs'
+      GripAlign = gaLeft
+      ImageIndex = -1
+      StaticPageIndex = -1
+      TabVisible = True
+      object CaptionBevel3: TCaptionBevel
+        Left = 28
+        Top = 12
+        Width = 445
+        Height = 13
+        Caption = 'Wizard Settings'
+        Transparent = True
+      end
+      object SmartKillBevel: TCaptionBevel
+        Left = 8
+        Top = 132
+        Width = 465
+        Height = 13
+        Caption = 'SmartKill Settings'
+        Transparent = True
+      end
+      object Label6: TLabel
+        Left = 24
+        Top = 176
+        Width = 445
+        Height = 29
+        AutoSize = False
+        Caption = 
+          'Some invisible, background programs can'#39't be closed by SmartClos' +
+          'e. If this setting is enabled, SmartClose will kill them using S' +
+          'martKill.'
+        WordWrap = True
+      end
+      object Label7: TLabel
+        Left = 24
+        Top = 232
+        Width = 445
+        Height = 41
+        AutoSize = False
+        Caption = 
+          'Sometimes, SmartClose will try to close a program properly but w' +
+          'ill fail. If this setting is enabled, such programs will be kill' +
+          'ed by SmartClose using SmartKill.'#13#10'Note: enabling this setting i' +
+          's not recommend.'
+        WordWrap = True
+      end
+      object imgWiz: TImage
+        Left = 8
+        Top = 12
+        Width = 16
+        Height = 16
+        Center = True
+        Transparent = True
+      end
+      object chkShowProgs: TCheckBox
+        Left = 16
+        Top = 40
+        Width = 413
+        Height = 13
+        Caption = 'Show the list of running &programs while closing all programs'
+        TabOrder = 0
+        OnClick = UpdateApply
+      end
+      object chkShowProgsKill: TCheckBox
+        Left = 16
+        Top = 60
+        Width = 401
+        Height = 13
+        Caption = 'Show the list of running programs while &killing programs'
+        TabOrder = 1
+        OnClick = UpdateApply
+      end
+      object chkKillNonVis: TCheckBox
+        Left = 16
+        Top = 160
+        Width = 381
+        Height = 13
+        Caption = '&SmartKill programs that can'#39't be properly closed by SmartClose'
+        TabOrder = 3
+        OnClick = UpdateApply
+      end
+      object chkKillFailed: TCheckBox
+        Left = 16
+        Top = 216
+        Width = 413
+        Height = 13
+        Caption = 
+          'S&martKill programs that SmartClose failed to close properly (no' +
+          't recommended)'
+        TabOrder = 4
+        OnClick = UpdateApply
+      end
+      object chkAutoExit: TCheckBox
+        Left = 16
+        Top = 80
+        Width = 381
+        Height = 13
+        Caption = '&Exit SmartClose when the Close Programs wizard is finished'
+        TabOrder = 2
+        OnClick = UpdateApply
+      end
+    end
+    object shRestore: TTab95Sheet
+      Caption = 'Restore'
+      GripAlign = gaLeft
+      ImageIndex = -1
+      StaticPageIndex = -1
+      TabVisible = True
+      object CaptionBevel5: TCaptionBevel
+        Left = 28
+        Top = 12
+        Width = 445
+        Height = 13
+        Caption = 'Wizard Settings'
+        Transparent = True
+      end
+      object imgResWiz: TImage
+        Left = 8
+        Top = 12
+        Width = 16
+        Height = 16
+        Center = True
+        Transparent = True
+      end
+      object CaptionBevel6: TCaptionBevel
+        Left = 8
+        Top = 132
+        Width = 465
+        Height = 13
+        Caption = 'Other Settings'
+        Transparent = True
+      end
+      object chkUncheckProgs: TCheckBox95
+        Left = 16
+        Top = 160
+        Width = 413
+        Height = 31
+        Caption = 
+          'Automatically &uncheck all the programs in the system snapshot t' +
+          'hat are already running'
+        TabOrder = 3
+        OnClick = UpdateApply
+        WordWrap = True
+      end
+      object chkShowRestoreProgs: TCheckBox
+        Left = 16
+        Top = 40
+        Width = 413
+        Height = 13
+        Caption = 
+          '&Show the list of programs that SmartClose starts during the Res' +
+          'tore process'
+        TabOrder = 0
+        OnClick = UpdateApply
+      end
+      object chkProgsWait: TCheckBox
+        Left = 16
+        Top = 60
+        Width = 401
+        Height = 13
+        Caption = 
+          '&Wait until all the started programs have finished loading befor' +
+          'e continuing'
+        TabOrder = 1
+        OnClick = UpdateApply
+      end
+      object chkResAutoExit: TCheckBox
+        Left = 16
+        Top = 80
+        Width = 381
+        Height = 13
+        Caption = '&Exit SmartClose when the Restore wizard is finished'
+        TabOrder = 2
+        OnClick = UpdateApply
+      end
+      object chkAllowScreenSaver: TCheckBox95
+        Left = 16
+        Top = 200
+        Width = 413
+        Height = 31
+        Caption = 
+          'Allow to enable the s&creen saver even when there'#39's no screen sa' +
+          'ver info in the selected system snapshot'
+        TabOrder = 4
+        OnClick = UpdateApply
+        WordWrap = True
+      end
+      object chkAllowTaskSched: TCheckBox95
+        Left = 16
+        Top = 242
+        Width = 413
+        Height = 31
+        Caption = 
+          '&Allow to enable the &Task Scheduler even when there'#39's no Task S' +
+          'cheduler info in the selected system snapshot'
+        TabOrder = 5
+        OnClick = UpdateApply
+        WordWrap = True
+      end
+    end
+    object shServices: TTab95Sheet
+      Caption = 'Services'
+      GripAlign = gaLeft
+      ImageIndex = -1
+      StaticPageIndex = -1
+      TabVisible = True
+      object imgServ: TImage
+        Left = 8
+        Top = 12
+        Width = 32
+        Height = 32
+        Center = True
+        Transparent = True
+      end
+      object lblServ: TLabel
+        Left = 48
+        Top = 12
+        Width = 425
+        Height = 31
+        AutoSize = False
+        Caption = 
+          'During the Close Programs Process, SmartClose can also stop serv' +
+          'ices, background (mostly invisible) programs that can always be ' +
+          'running, even when no user is logged on.'
+        WordWrap = True
+      end
+      object Label8: TLabel
+        Left = 16
+        Top = 54
+        Width = 457
+        Height = 43
+        AutoSize = False
+        Caption = 
+          'All the services that can be stopped by SmartClose are listed in' +
+          ' a simple text file called "Services.ini", in the SmartClose app' +
+          'lication folder. You can add or remove services by editing this ' +
+          'file in a text editor, such as Windows Notepad.'
+        WordWrap = True
+      end
+      object Label9: TLabel
+        Left = 24
+        Top = 126
+        Width = 449
+        Height = 31
+        AutoSize = False
+        Caption = 
+          'Warning: some services are very important and should never be st' +
+          'opped. Do not edit this list unless you know what you'#39're doing.'
+        WordWrap = True
+      end
+      object CaptionBevel7: TCaptionBevel
+        Left = 8
+        Top = 180
+        Width = 465
+        Height = 13
+        Caption = 'Manage services'
+        Transparent = True
+      end
+      object lblServices: TLabel
+        Left = 16
+        Top = 198
+        Width = 457
+        Height = 43
+        AutoSize = False
+        Caption = 
+          'The %s shows the list of all the installed services on this comp' +
+          'uter. You can view information about a service, and start, stop ' +
+          'or configure a service. '
+        WordWrap = True
+      end
+      object btnEditServices: TButton
+        Left = 24
+        Top = 102
+        Width = 137
+        Height = 21
+        Caption = '&Edit Services.ini'
+        TabOrder = 0
+        OnClick = btnEditServicesClick
+      end
+      object btnManageServices: TButton
+        Left = 24
+        Top = 234
+        Width = 229
+        Height = 21
+        Caption = '&Start %s'
+        TabOrder = 1
+        OnClick = btnManageServicesClick
+      end
+    end
+  end
+  object btnCancel: TButton
+    Left = 430
+    Top = 366
+    Width = 75
+    Height = 23
+    Cancel = True
+    Caption = 'Cancel'
+    ModalResult = 2
+    TabOrder = 3
+    OnClick = btnCancelClick
+  end
+  object btnApply: TButton
+    Left = 348
+    Top = 366
+    Width = 75
+    Height = 23
+    Caption = '&Apply'
+    Enabled = False
+    TabOrder = 2
+    OnClick = btnApplyClick
+  end
+  object btnOK: TButton
+    Left = 266
+    Top = 366
+    Width = 75
+    Height = 23
+    Caption = 'OK'
+    Default = True
+    ModalResult = 1
+    TabOrder = 1
+    OnClick = btnOKClick
+  end
+  object Images: TImageList
+    Left = 444
+    Top = 4
+  end
+  object ThemeManager1: TThemeManager
+    Left = 476
+    Top = 4
+  end
+end

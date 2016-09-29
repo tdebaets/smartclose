@@ -1,0 +1,95 @@
+object IEWindows: TIEWindows
+  Left = 522
+  Top = 401
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsDialog
+  Caption = 'Explorer and Internet Explorer windows'
+  ClientHeight = 285
+  ClientWidth = 509
+  Color = clBtnFace
+  Font.Charset = ANSI_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = True
+  Position = poScreenCenter
+  Scaled = False
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 12
+    Top = 8
+    Width = 489
+    Height = 53
+    AutoSize = False
+    Caption = 
+      'This is the list of Explorer and Internet Explorer windows that ' +
+      'can be restored from the system snapshot. Uncheck an item to pre' +
+      'vent the window from being restored by SmartClose. '#10#13'Items in re' +
+      'd are Explorer windows that can'#39't be restored because their loca' +
+      'tion doesn'#39't exist on this system.'
+    WordWrap = True
+  end
+  object Bevel1: TBevel
+    Left = 12
+    Top = 236
+    Width = 489
+    Height = 9
+    Shape = bsBottomLine
+  end
+  object Button1: TButton
+    Left = 211
+    Top = 256
+    Width = 75
+    Height = 23
+    Cancel = True
+    Caption = 'OK'
+    Default = True
+    ModalResult = 1
+    TabOrder = 1
+  end
+  object lvWindows: TExtChkListView
+    Left = 12
+    Top = 68
+    Width = 489
+    Height = 165
+    DisabledColor = clRed
+    Columns = <
+      item
+        Caption = 'Location'
+        Width = -2
+        WidthType = (
+          -2)
+      end
+      item
+        Alignment = taRightJustify
+        Caption = 'Window Type'
+        Width = -2
+        WidthType = (
+          -2)
+      end>
+    HideSelection = False
+    ExtendedStyles = [lvxCheckboxes, lvxFullRowSelect, lvxLabelTip]
+    NoColumnResize = False
+    ColumnsFormat = <>
+    AutoColumnSort = acsSortToggle
+    AutoSortStyle = assDefault
+    ReadOnly = True
+    TabOrder = 0
+    ViewStyle = vsReport
+    SmallImages = imgImages
+    DoubleBuffered = False
+  end
+  object imgImages: TImageList
+    BkColor = clWhite
+    Left = 12
+    Top = 248
+  end
+  object ThemeManager1: TThemeManager
+    Left = 368
+    Top = 256
+  end
+end

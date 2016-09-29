@@ -1,0 +1,216 @@
+object AboutFrm: TAboutFrm
+  Left = 581
+  Top = 199
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsSingle
+  Caption = 'About SmartClose'
+  ClientHeight = 377
+  ClientWidth = 421
+  Color = clBtnFace
+  Font.Charset = ANSI_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = True
+  Position = poScreenCenter
+  Scaled = False
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnHide = FormHide
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object GroupBox1: TGroupBox
+    Left = 12
+    Top = 6
+    Width = 397
+    Height = 331
+    TabOrder = 0
+    object Label1: TLabel
+      Left = 76
+      Top = 18
+      Width = 133
+      Height = 19
+      AutoSize = False
+      Caption = 'BM-productions'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -15
+      Font.Name = 'Verdana'
+      Font.Style = [fsItalic]
+      ParentFont = False
+    end
+    object Label2: TLabel
+      Left = 76
+      Top = 36
+      Width = 257
+      Height = 25
+      AutoSize = False
+      Caption = 'SmartClose'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -24
+      Font.Name = 'Verdana'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Bevel1: TBevel
+      Left = 12
+      Top = 72
+      Width = 373
+      Height = 13
+      Shape = bsTopLine
+    end
+    object lblVersion: TLabel
+      Left = 76
+      Top = 80
+      Width = 28
+      Height = 13
+      Caption = 'Verpp'
+    end
+    object Label3: TLabel
+      Left = 76
+      Top = 95
+      Width = 164
+      Height = 26
+      Caption = 'Copyright © 2010 BM-productions'#13'All Rights Reserved'
+    end
+    object Label4: TLabel
+      Left = 76
+      Top = 123
+      Width = 111
+      Height = 13
+      Caption = 'SmartClose is freeware'
+    end
+    object Ico: TIconView
+      Left = 12
+      Top = 18
+      Width = 48
+      Height = 48
+      TabOrder = 0
+    end
+    object GroupBox2: TGroupBox
+      Left = 76
+      Top = 144
+      Width = 309
+      Height = 79
+      Caption = 'Information'
+      TabOrder = 1
+      object Label5: TLabel
+        Left = 12
+        Top = 18
+        Width = 37
+        Height = 13
+        Caption = 'Author:'
+      end
+      object Label6: TLabel
+        Left = 12
+        Top = 36
+        Width = 32
+        Height = 13
+        Caption = 'E-mail:'
+      end
+      object Label7: TLabel
+        Left = 12
+        Top = 54
+        Width = 43
+        Height = 13
+        Caption = 'Website:'
+      end
+      object lblWebsite: TLabel
+        Left = 60
+        Top = 54
+        Width = 147
+        Height = 13
+        Cursor = crHandPoint
+        Caption = 'http://www.bm-productions.tk'
+        Color = clBtnFace
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clBlue
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = [fsUnderline]
+        ParentColor = False
+        ParentFont = False
+        OnClick = lblWebsiteClick
+      end
+      object Label8: TLabel
+        Left = 60
+        Top = 18
+        Width = 62
+        Height = 13
+        Caption = 'Tim De Baets'
+      end
+      object lblMail: TLabel
+        Left = 60
+        Top = 36
+        Width = 115
+        Height = 13
+        Cursor = crHandPoint
+        Caption = 'info@bm-productions.tk'
+        Color = clBtnFace
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clBlue
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = [fsUnderline]
+        ParentColor = False
+        ParentFont = False
+        OnClick = lblMailClick
+      end
+    end
+    object paCredits: TPanel
+      Left = 8
+      Top = 234
+      Width = 377
+      Height = 85
+      BevelOuter = bvNone
+      BorderStyle = bsSingle
+      FullRepaint = False
+      TabOrder = 2
+      object lblCredits: TLabel
+        Left = 0
+        Top = 0
+        Width = 54
+        Height = 13
+        Alignment = taCenter
+        Caption = 'lblCredits'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Verdana'
+        Font.Style = []
+        ParentFont = False
+        ShowAccelChar = False
+      end
+    end
+  end
+  object btnSysInfo: TButton
+    Left = 280
+    Top = 345
+    Width = 129
+    Height = 23
+    Caption = 'System Information...'
+    TabOrder = 2
+    OnClick = btnSysInfoClick
+  end
+  object btnOK: TButton
+    Left = 196
+    Top = 345
+    Width = 75
+    Height = 23
+    Cancel = True
+    Caption = 'OK'
+    Default = True
+    TabOrder = 1
+    OnClick = btnOKClick
+  end
+  object tmrScroll: TTimer
+    Enabled = False
+    Interval = 40
+    OnTimer = tmrScrollTimer
+    Left = 52
+    Top = 342
+  end
+end

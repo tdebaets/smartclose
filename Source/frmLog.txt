@@ -1,0 +1,43 @@
+object LogWindow: TLogWindow
+  Left = 282
+  Top = 227
+  AutoScroll = False
+  BorderIcons = [biSystemMenu, biMaximize]
+  Caption = 'View Close Programs-Log'
+  ClientHeight = 383
+  ClientWidth = 495
+  Color = clBtnFace
+  Font.Charset = ANSI_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = True
+  Position = poScreenCenter
+  OnCreate = FormCreate
+  PixelsPerInch = 96
+  TextHeight = 13
+  object txtLog: TMemo
+    Left = 0
+    Top = 0
+    Width = 495
+    Height = 383
+    Align = alClient
+    Color = clBtnFace
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Verdana'
+    Font.Style = []
+    HideSelection = False
+    ParentFont = False
+    ReadOnly = True
+    ScrollBars = ssBoth
+    TabOrder = 0
+    WordWrap = False
+  end
+  object ThemeManager1: TThemeManager
+    Left = 56
+    Top = 84
+  end
+end

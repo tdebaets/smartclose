@@ -1,0 +1,857 @@
+object frmRestoreWiz: TfrmRestoreWiz
+  Left = 610
+  Top = 389
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsSingle
+  Caption = 'SmartClose - Restore Wizard'
+  ClientHeight = 358
+  ClientWidth = 495
+  Color = clBtnFace
+  Font.Charset = ANSI_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = True
+  Position = poScreenCenter
+  Scaled = False
+  OnClose = FormClose
+  OnCloseQuery = FormCloseQuery
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Bevel: TBevel
+    Left = -8
+    Top = 314
+    Width = 503
+    Height = 2
+    Shape = bsTopLine
+  end
+  object BackButton: TButton
+    Left = 248
+    Top = 326
+    Width = 75
+    Height = 23
+    Caption = '< &Back'
+    TabOrder = 1
+    OnClick = BackButtonClick
+  end
+  object NextButton: TButton
+    Left = 323
+    Top = 326
+    Width = 75
+    Height = 23
+    Caption = '&Next >'
+    Default = True
+    TabOrder = 2
+    OnClick = NextButtonClick
+  end
+  object CancelButton: TButton
+    Left = 408
+    Top = 326
+    Width = 75
+    Height = 23
+    Cancel = True
+    Caption = 'Cancel'
+    TabOrder = 3
+    OnClick = CancelButtonClick
+  end
+  object Notebook1: TNotebook
+    Left = -1
+    Top = 0
+    Width = 496
+    Height = 314
+    Color = clBtnFace
+    PageIndex = 1
+    ParentColor = False
+    TabOrder = 0
+    object TPage
+      Left = 0
+      Top = 0
+      Caption = 'Welcome'
+      object imgPicture: TImage
+        Left = 0
+        Top = 0
+        Width = 164
+        Height = 314
+        Align = alLeft
+        Center = True
+        Stretch = True
+      end
+      object paWelcome: TPanel
+        Left = 164
+        Top = 0
+        Width = 332
+        Height = 314
+        BevelOuter = bvNone
+        Color = clWindow
+        TabOrder = 0
+        object WelcomeLabel1: TLabel
+          Left = 12
+          Top = 16
+          Width = 301
+          Height = 53
+          AutoSize = False
+          Caption = 'Welcome to the SmartClose Restore Wizard'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -16
+          Font.Name = 'Verdana'
+          Font.Style = [fsBold]
+          ParentFont = False
+          ShowAccelChar = False
+          WordWrap = True
+        end
+        object WelcomeLabel2: TLabel
+          Left = 12
+          Top = 72
+          Width = 301
+          Height = 41
+          AutoSize = False
+          Caption = 
+            'This wizard will help you through the process of restoring a sys' +
+            'tem snapshot created with the SmartClose Close Programs Wizard. '
+          ShowAccelChar = False
+          WordWrap = True
+        end
+        object WelcomeLabel3: TLabel
+          Left = 12
+          Top = 124
+          Width = 301
+          Height = 89
+          AutoSize = False
+          Caption = 'Txt'
+          ShowAccelChar = False
+          WordWrap = True
+        end
+        object WelcomeLabel5: TLabel
+          Left = 12
+          Top = 236
+          Width = 301
+          Height = 13
+          AutoSize = False
+          Caption = 'Click Next to continue, or Cancel to exit the Wizard.'
+          ShowAccelChar = False
+          WordWrap = True
+        end
+        object chkNoIntro: TCheckBox
+          Left = 12
+          Top = 272
+          Width = 277
+          Height = 17
+          Caption = '&Don'#39't show this introduction page again'
+          TabOrder = 0
+        end
+      end
+    end
+    object TPage
+      Left = 0
+      Top = 0
+      Caption = 'Main'
+      object Bevel1: TBevel
+        Left = 0
+        Top = 58
+        Width = 499
+        Height = 3
+        Shape = bsTopLine
+      end
+      object PnlMain: TPanel
+        Left = 0
+        Top = 0
+        Width = 497
+        Height = 58
+        BevelOuter = bvNone
+        Color = clWindow
+        TabOrder = 0
+        object lblCaption: TLabel
+          Left = 24
+          Top = 10
+          Width = 405
+          Height = 13
+          AutoSize = False
+          Caption = 'Caption'
+        end
+        object lblDescription: TLabel
+          Left = 40
+          Top = 26
+          Width = 389
+          Height = 29
+          AutoSize = False
+          Caption = 'Description'
+          ShowAccelChar = False
+          WordWrap = True
+        end
+        object imgSmall: TImage
+          Left = 440
+          Top = 1
+          Width = 55
+          Height = 55
+          Center = True
+          Stretch = True
+        end
+      end
+      object Notebook2: TNotebook
+        Left = 4
+        Top = 64
+        Width = 485
+        Height = 245
+        PageIndex = 2
+        TabOrder = 1
+        object TPage
+          Left = 0
+          Top = 0
+          Caption = 'Location'
+          object InfoBeforeClickLabel: TLabel
+            Left = 76
+            Top = 8
+            Width = 373
+            Height = 41
+            AutoSize = False
+            Caption = 
+              'Please select the location where you would like SmartClose to re' +
+              'store a System Snapshot from:'
+            ShowAccelChar = False
+            WordWrap = True
+          end
+          object imgSnap: TImage
+            Left = 36
+            Top = 8
+            Width = 32
+            Height = 32
+            AutoSize = True
+            Center = True
+            Transparent = True
+          end
+          object lblName: TLabel
+            Left = 56
+            Top = 136
+            Width = 34
+            Height = 13
+            Caption = 'Na&me: '
+            FocusControl = cmbName
+          end
+          object Label7: TLabel
+            Left = 56
+            Top = 192
+            Width = 49
+            Height = 13
+            Caption = 'Filen&ame: '
+            FocusControl = txtFilename
+          end
+          object lblDate: TLabel
+            Left = 60
+            Top = 218
+            Width = 16
+            Height = 13
+            Caption = 'Txt'
+          end
+          object optDefault: TRadioButton
+            Tag = 1
+            Left = 36
+            Top = 84
+            Width = 345
+            Height = 13
+            Caption = 'Restore the system snapshot from the &default location'
+            TabOrder = 1
+            OnClick = optLocationClick
+          end
+          object optName: TRadioButton
+            Tag = 2
+            Left = 36
+            Top = 116
+            Width = 337
+            Height = 13
+            Caption = 'Restore a system snapshot with a &custom name'
+            TabOrder = 2
+            OnClick = optLocationClick
+          end
+          object optFilename: TRadioButton
+            Tag = 3
+            Left = 36
+            Top = 172
+            Width = 337
+            Height = 13
+            Caption = 'Restore a system snapshot from a c&ustom location'
+            TabOrder = 4
+            OnClick = optLocationClick
+          end
+          object txtFilename: TEdit
+            Left = 108
+            Top = 188
+            Width = 273
+            Height = 20
+            AutoSize = False
+            Color = clBtnFace
+            ReadOnly = True
+            TabOrder = 5
+            Text = 'txtFilename'
+          end
+          object btnBrowse: TButton
+            Left = 384
+            Top = 188
+            Width = 65
+            Height = 20
+            Caption = 'Br&owse...'
+            TabOrder = 6
+            OnClick = btnBrowseClick
+          end
+          object cmbName: TComboBox
+            Left = 108
+            Top = 132
+            Width = 161
+            Height = 21
+            ItemHeight = 0
+            Sorted = True
+            TabOrder = 3
+            Text = 'cmbName'
+            OnChange = cmbNameChange
+          end
+          object optLastSaved: TRadioButton
+            Left = 36
+            Top = 52
+            Width = 345
+            Height = 13
+            Caption = 'Restore the &last saved system snapshot'
+            Checked = True
+            TabOrder = 0
+            TabStop = True
+            OnClick = optLocationClick
+          end
+          object icoTip: TIconView
+            Left = 36
+            Top = 216
+            Width = 16
+            Height = 16
+            TabOrder = 7
+          end
+        end
+        object TPage
+          Left = 0
+          Top = 0
+          Caption = 'Programs'
+          object imgProgs: TImage
+            Left = 36
+            Top = 8
+            Width = 32
+            Height = 32
+            Center = True
+            Transparent = True
+          end
+          object Label5: TLabel
+            Left = 76
+            Top = 8
+            Width = 373
+            Height = 41
+            AutoSize = False
+            Caption = 
+              'This is a list of all the programs in the selected system snapsh' +
+              'ot that are about to be launched. Uncheck a program to prevent i' +
+              't from being started by the Restore Wizard, or double-click an i' +
+              'tem for more details. '
+            WordWrap = True
+          end
+          object btnUncheckActive: TButton
+            Left = 284
+            Top = 216
+            Width = 165
+            Height = 21
+            Hint = 'Unchecks all the programs in the list that are already running'
+            Caption = 'Uncheck &Running Programs'
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 3
+            OnClick = btnUncheckActiveClick
+          end
+          object btnCheckAll: TButton
+            Left = 36
+            Top = 216
+            Width = 117
+            Height = 21
+            Caption = 'Check &all'
+            TabOrder = 1
+            OnClick = btnCheckAllClick
+          end
+          object btnCheckNone: TButton
+            Left = 160
+            Top = 216
+            Width = 117
+            Height = 21
+            Caption = 'Check n&one'
+            TabOrder = 2
+            OnClick = btnCheckNoneClick
+          end
+          object lvProgs: TExtChkListView
+            Left = 36
+            Top = 54
+            Width = 413
+            Height = 155
+            DisabledColor = clRed
+            Columns = <
+              item
+                Caption = 'Program'
+                Width = -2
+                WidthType = (
+                  -2)
+              end
+              item
+                Caption = 'Working Directory'
+                Width = -2
+                WidthType = (
+                  -2)
+              end
+              item
+                Caption = 'Arguments'
+                Width = -2
+                WidthType = (
+                  -2)
+              end>
+            HideSelection = False
+            ExtendedStyles = [lvxCheckboxes, lvxHeaderDragDrop, lvxFullRowSelect, lvxLabelTip]
+            NoColumnResize = False
+            SaveSettings.AutoSave = True
+            SaveSettings.SaveColumnSizes = False
+            SaveSettings.SaveViewStyle = False
+            ColumnsFormat = <>
+            AutoColumnSort = acsSortToggle
+            AutoSortStyle = assDefault
+            OnDblClick = lvProgsDblClick
+            ReadOnly = True
+            PopupMenu = mnuProgs
+            TabOrder = 0
+            ViewStyle = vsReport
+            SmallImages = imgsProgs
+            DoubleBuffered = False
+          end
+        end
+        object TPage
+          Left = 0
+          Top = 0
+          Caption = 'Options'
+          object imgSettings: TImage
+            Left = 36
+            Top = 8
+            Width = 32
+            Height = 32
+            AutoSize = True
+            Transparent = True
+          end
+          object Label1: TLabel
+            Left = 76
+            Top = 8
+            Width = 373
+            Height = 41
+            AutoSize = False
+            Caption = 
+              'On this page, you can set what SmartClose has to restore from th' +
+              'e system snapshot besides programs, such as Explorer windows or ' +
+              'the screen saver.'
+            WordWrap = True
+          end
+          object ScreenSaveBevel: TCaptionBevel
+            Left = 36
+            Top = 52
+            Width = 413
+            Height = 13
+            Caption = 'Screen Saver'
+          end
+          object IEBevel: TCaptionBevel
+            Left = 36
+            Top = 104
+            Width = 413
+            Height = 13
+            Caption = 'Explorer and Internet Explorer windows'
+          end
+          object lblWindows: TLabel
+            Left = 78
+            Top = 140
+            Width = 251
+            Height = 13
+            Caption = 'x Explorer and Internet Explorer windows to restore'
+          end
+          object imgOverlay: TImage
+            Left = 36
+            Top = 8
+            Width = 32
+            Height = 32
+            AutoSize = True
+            Center = True
+            Transparent = True
+          end
+          object chkScreenSave: TCheckBox
+            Left = 60
+            Top = 72
+            Width = 129
+            Height = 13
+            Caption = 'Restore &Screen Saver'
+            TabOrder = 0
+          end
+          object chkWindows: TCheckBox
+            Left = 60
+            Top = 124
+            Width = 281
+            Height = 13
+            Caption = 'Restore &Explorer and Internet Explorer windows'
+            TabOrder = 1
+          end
+          object btnWindows: TButton
+            Left = 348
+            Top = 136
+            Width = 101
+            Height = 21
+            Caption = '&Customize...'
+            TabOrder = 2
+            OnClick = btnWindowsClick
+          end
+          object Notebook3: TNotebook
+            Left = 28
+            Top = 172
+            Width = 429
+            Height = 61
+            PageIndex = 1
+            TabOrder = 3
+            object TPage
+              Left = 0
+              Top = 0
+              Caption = 'TaskSched'
+              object TaskBevel: TCaptionBevel
+                Left = 8
+                Top = 4
+                Width = 413
+                Height = 13
+                Caption = 'Task Scheduler'
+              end
+              object chkTaskSched: TCheckBox
+                Left = 32
+                Top = 24
+                Width = 185
+                Height = 13
+                Caption = 'Re-enable &Task Scheduler'
+                TabOrder = 0
+              end
+              object icoSched: TIconView
+                Left = 8
+                Top = 22
+                Width = 16
+                Height = 16
+                TabOrder = 1
+              end
+            end
+            object TPage
+              Left = 0
+              Top = 0
+              Caption = 'Services'
+              object ServBevel: TCaptionBevel
+                Left = 8
+                Top = 4
+                Width = 413
+                Height = 13
+                Caption = 'Services'
+              end
+              object lblServices: TLabel
+                Left = 50
+                Top = 40
+                Width = 97
+                Height = 13
+                Caption = 'x services to restart'
+              end
+              object chkServices: TCheckBox
+                Left = 32
+                Top = 24
+                Width = 157
+                Height = 13
+                Caption = 'Restart Ser&vices'
+                TabOrder = 0
+              end
+              object btnServices: TButton
+                Left = 320
+                Top = 36
+                Width = 101
+                Height = 21
+                Caption = 'C&ustomize...'
+                TabOrder = 1
+                OnClick = btnServicesClick
+              end
+              object icoServ: TIconView
+                Left = 8
+                Top = 22
+                Width = 16
+                Height = 16
+                TabOrder = 2
+              end
+            end
+          end
+          object icoScreenSave: TIconView
+            Left = 36
+            Top = 70
+            Width = 16
+            Height = 16
+            TabOrder = 4
+          end
+          object icoWins: TIconView
+            Left = 36
+            Top = 122
+            Width = 16
+            Height = 16
+            TabOrder = 5
+          end
+        end
+        object TPage
+          Left = 0
+          Top = 0
+          Caption = 'Ready'
+          object ReadyLabel: TLabel
+            Left = 36
+            Top = 8
+            Width = 413
+            Height = 29
+            AutoSize = False
+            Caption = 
+              'Click "Start" to start the Restore Process, or "Back" if you wan' +
+              't to review or change any settings.'
+            ShowAccelChar = False
+            WordWrap = True
+          end
+          object txtSummary: TMemo
+            Left = 36
+            Top = 40
+            Width = 413
+            Height = 197
+            Color = clBtnFace
+            ReadOnly = True
+            ScrollBars = ssBoth
+            TabOrder = 0
+            WordWrap = False
+          end
+        end
+        object TPage
+          Left = 0
+          Top = 0
+          Caption = 'Process'
+          object lblCurrent: TLabel
+            Left = 28
+            Top = 164
+            Width = 37
+            Height = 13
+            Caption = 'Current'
+          end
+          object Label8: TLabel
+            Left = 28
+            Top = 204
+            Width = 86
+            Height = 13
+            Caption = 'Overall Progress: '
+          end
+          object lblCount: TLabel
+            Left = 429
+            Top = 164
+            Width = 12
+            Height = 13
+            Alignment = taRightJustify
+            Caption = '28'
+            Visible = False
+          end
+          object lblDebug: TLabel
+            Left = 381
+            Top = 204
+            Width = 60
+            Height = 13
+            Alignment = taRightJustify
+            Caption = 'Debug Mode'
+            Visible = False
+          end
+          object ProgressNotebook: TNotebook
+            Left = 20
+            Top = 4
+            Width = 429
+            Height = 157
+            PageIndex = 1
+            TabOrder = 0
+            object TPage
+              Left = 0
+              Top = 0
+              Caption = 'Progress'
+              object StatusLabel: TLabel
+                Left = 72
+                Top = 20
+                Width = 260
+                Height = 16
+                AutoSize = False
+                Caption = 'SmartClose Progress:'
+                ShowAccelChar = False
+              end
+              object lblTask: TLabel
+                Left = 96
+                Top = 49
+                Width = 309
+                Height = 13
+                AutoSize = False
+                Caption = 'Task 1'
+              end
+              object lblArrow: TLabel
+                Left = 72
+                Top = 48
+                Width = 16
+                Height = 16
+                Caption = '4'
+                Font.Charset = SYMBOL_CHARSET
+                Font.Color = clWindowText
+                Font.Height = -16
+                Font.Name = 'Marlett'
+                Font.Style = []
+                ParentFont = False
+                Visible = False
+              end
+              object icoProcess: TIconView
+                Left = 16
+                Top = 4
+                Width = 48
+                Height = 48
+                TabOrder = 0
+              end
+            end
+            object TPage
+              Left = 0
+              Top = 0
+              Caption = 'Progs'
+              object lstProgs: TListView
+                Left = 8
+                Top = 3
+                Width = 413
+                Height = 150
+                Columns = <
+                  item
+                    Caption = 'Program Name'
+                    Width = -2
+                    WidthType = (
+                      -2)
+                  end
+                  item
+                    Alignment = taRightJustify
+                    Caption = 'Status'
+                    Width = -2
+                    WidthType = (
+                      -2)
+                  end>
+                ColumnClick = False
+                HotTrackStyles = []
+                ReadOnly = True
+                RowSelect = True
+                ParentShowHint = False
+                ShowHint = False
+                SmallImages = imgsStates
+                SortType = stBoth
+                TabOrder = 0
+                ViewStyle = vsReport
+              end
+            end
+          end
+          object CurrentProgress: TdfsExtProgressBar
+            Left = 28
+            Top = 180
+            Width = 413
+            Height = 17
+            Min = 0
+            Max = 100
+            Smooth = True
+            Step = 1
+            TabOrder = 1
+          end
+          object TotalProgress: TdfsExtProgressBar
+            Left = 28
+            Top = 220
+            Width = 413
+            Height = 17
+            Min = 0
+            Max = 100
+            Smooth = True
+            Step = 1
+            TabOrder = 2
+          end
+        end
+      end
+    end
+    object TPage
+      Left = 0
+      Top = 0
+      Caption = 'Finished'
+      object paFinished: TPanel
+        Left = 0
+        Top = 0
+        Width = 496
+        Height = 314
+        BevelOuter = bvNone
+        Color = clWindow
+        TabOrder = 0
+        object FinishedLabel: TLabel
+          Left = 176
+          Top = 16
+          Width = 301
+          Height = 29
+          AutoSize = False
+          Caption = 
+            'The Restore Wizard of SmartClose has successfully finished resto' +
+            'ring the specified system snapshot.'
+          ShowAccelChar = False
+          WordWrap = True
+        end
+        object Label9: TLabel
+          Left = 176
+          Top = 88
+          Width = 301
+          Height = 16
+          AutoSize = False
+          Caption = 'Click "Finish" to exit the Restore Wizard.'
+          ShowAccelChar = False
+          WordWrap = True
+        end
+        object lblDetails: TLabel
+          Left = 176
+          Top = 44
+          Width = 44
+          Height = 13
+          Cursor = crHandPoint
+          Caption = 'Details...'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlue
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = [fsUnderline]
+          ParentColor = False
+          ParentFont = False
+          OnClick = lblDetailsClick
+        end
+      end
+    end
+  end
+  object OpenDialog: TAgOpenDialog
+    Options = [ofHideReadOnly, ofPathMustExist, ofFileMustExist]
+    Title = 'SmartClose - Restore a system snapshot'
+    ShowPlacesBar = True
+    Top = 332
+  end
+  object imgsProgs: TImageList
+    Left = 28
+    Top = 332
+  end
+  object mnuProgs: TPopupMenu
+    OnPopup = mnuProgsPopup
+    Left = 55
+    Top = 332
+    object mnuDetails: TMenuItem
+      Caption = 'Details...'
+      Default = True
+      Enabled = False
+      OnClick = mnuDetailsClick
+    end
+  end
+  object imgsStates: TImageList
+    Left = 84
+    Top = 332
+  end
+  object ThemeManager1: TThemeManager
+    Left = 112
+    Top = 330
+  end
+end

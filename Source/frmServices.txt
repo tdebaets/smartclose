@@ -1,0 +1,94 @@
+object Services: TServices
+  Left = 556
+  Top = 435
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsDialog
+  Caption = 'Services'
+  ClientHeight = 299
+  ClientWidth = 509
+  Color = clBtnFace
+  Font.Charset = ANSI_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = True
+  Position = poScreenCenter
+  Scaled = False
+  OnCreate = FormCreate
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 12
+    Top = 8
+    Width = 485
+    Height = 65
+    AutoSize = False
+    Caption = 
+      'This is the list of services that can be restored from the syste' +
+      'm snapshot. Uncheck an item to prevent the service from being re' +
+      'started by SmartClose.'#13#10'Disabled items are services that can'#39't b' +
+      'e restarted because they are already running.'#13#10'Disabled items in' +
+      ' red are services that can'#39't be restarted because they don'#39't exi' +
+      'st on this system, or because they are disabled.'
+    WordWrap = True
+  end
+  object Bevel1: TBevel
+    Left = 12
+    Top = 248
+    Width = 485
+    Height = 9
+    Shape = bsBottomLine
+  end
+  object Button1: TButton
+    Left = 217
+    Top = 268
+    Width = 75
+    Height = 23
+    Cancel = True
+    Caption = 'OK'
+    Default = True
+    ModalResult = 1
+    TabOrder = 1
+  end
+  object lvServices: TExtChkListView
+    Left = 12
+    Top = 76
+    Width = 485
+    Height = 169
+    OnItemPrePaint = lvServicesItemPrePaint
+    Columns = <
+      item
+        Caption = 'Service Name'
+        Width = -2
+        WidthType = (
+          -2)
+      end
+      item
+        Alignment = taRightJustify
+        Caption = 'Current Status'
+        Width = -2
+        WidthType = (
+          -2)
+      end
+      item
+        Caption = 'Internal Name'
+        Width = -2
+        WidthType = (
+          -2)
+      end>
+    ExtendedStyles = [lvxCheckboxes, lvxHeaderDragDrop, lvxFullRowSelect, lvxLabelTip]
+    NoColumnResize = False
+    ColumnsFormat = <>
+    AutoColumnSort = acsSortToggle
+    AutoSortStyle = assDefault
+    ReadOnly = True
+    TabOrder = 0
+    ViewStyle = vsReport
+    DoubleBuffered = False
+  end
+  object ThemeManager1: TThemeManager
+    Left = 340
+    Top = 252
+  end
+end
