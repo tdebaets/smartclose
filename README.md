@@ -10,3 +10,8 @@ The reason then why I have put the source code online is for educational purpose
 Pull requests for minor improvements are always welcome, although I can't guarantee that they will ever be released in a new version. I have lost interest in working on SmartClose a long time ago and have moved on to other projects since.
 
 -- Tim De Baets (@tdebaets)
+
+License
+-------
+
+SmartClose is Copyright © 2016 Tim De Baets. It is licensed under the Apache License version 2.0, see [LICENSE](LICENSE) for details.
