@@ -1,0 +1,100 @@
+****************************************************************************
+*
+*            SmartClose
+*
+*            Copyright (c) 2016 Tim De Baets
+*
+****************************************************************************
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+*     http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*
+****************************************************************************
+*
+* TODO file
+*
+****************************************************************************
+
+Expand built-in critical programs:
+
+"Critical system services include smss.exe, csrss.exe, winit.exe, logonui.exe, lsass.exe, services.exe, winlogon.exe, System, svchost.exe with RPCSS, and svchost.exe with Dcom/PnP."
+http://msdn2.microsoft.com/en-us/library/aa373651(VS.85).aspx
+http://msdn.microsoft.com/en-us/library/bb756958.aspx
+
+http://homepage.ntlworld.com./jonathan.deboynepollard/FGA/windows-nt-6-shutdown-process.html
+
+New way to close programs (more like shutdown):
+
+send WM_QUERYENDSESSION to each windowed app (timeout 5sec)
+send WM_ENDSESSION to each windowed app (timeout 5sec)
+(give each windowed app another 5sec and then) send WM_CLOSE (timeout 5sec)
+do other stuff (expwins, services...)
+wait until each windowed app had 20sec to close
+send messages to visible windows first
+if 2 messages timeout -> hung app
+
+(internet) explorer windows
+http://blogs.msdn.com/b/oldnewthing/archive/2013/06/10/10424662.aspx
+
+- bug: select screen saver+snapshot task, next, back, deselect snapshot, next, "snapshot already exists"
+- bug: Kopie van Default2.scss: uncheck "restore expwins", wizard runs but nothing to do
+- restore: disable fs redirection on x64
+- only open processes once and add hProc field to TProcWinObj
+- when closing processes, keep track of which ones get closed in a separate thread (use TProcWaitThread like when restoring)
+- only close processes of current user and leave other users (fast user switching) alone
+- close older or parentless processes first - close procs with (visible) windows first
+- make smss.exe & csrss.exe critical!
+- make critical process checking smarter by comparing full filename (or by checking for system dir)
+- give focus to txtSnapPath when selecting 'custom location' option
+- don't inject anymore to get curdir/commandline, but use NtQueryInformationProcess
+http://wj32.wordpress.com/2009/01/24/howto-get-the-command-line-of-processes/
+- make sure that VirtualFreeEx actually frees the allocated block
+- use separate 64-bit process for smartkill?
+- 64-bit CreateRemoteThread?
+- make smartkill work again on win 9x/ME (use disassembly of EliRT?)
+- test with DEP
+- remove iexplore.exe from critical processes but recognize iexplore.exe while closing and close its IE windows instead + same for explorer.exe?
+- use GetApplicationRestartSettings? (vista+)
+- bug: black icon in frmConfig's icoSnap
+- for Explorer windows, save their PIDL instead of path in snapshots (ishellbrowser ishellview ifolderview ishellfolder)
+- missing setfocus after corrupt snapshot warning
+- bug: comment at start of snapshots not always saved
+- disable restore screen saver task when no screen saver is currently set
+- hang on browse for snapshot folder?
+- check for & take mutex during close/restore process
+- close dos/console programs? (CTRL_CLOSE_EVENT)
+- improve waiting on start/stop of a service
+- in GetParentPID, verify parent creation time (parent PID could have been reused)
+- support closing/restoring of IE7 tabs
+- load process list on the fly and show icons later (remove frmWait)
+- TExtChkListView: prettier check boxes with visual styles disabled
+- disable close explorer windows task when IE version < 4
+- also wait when closing explorer windows, just like with process windows
+- test closing of outlook (no crash?)
+- www.awasu.com & www.surfulater.com crash on close attempt
+- show native tooltips everywhere instead of delphi's
+- frmMain: use native balloon tooltips
+- alternative mode for protected programs: inclusive, only select programs to be closed (use TProcessListView)
+- recognize service processes while closing and stop the containing services instead of regular closing/killing
+- option to review the list of closed/killed programs
+- cleanup system tray http://www.codeproject.com/Articles/10807/Shell-Tray-Info-Arrange-your-system-tray-icons
+- save logs to file (only on /debug?)
+- close/restore firefox sessions
+- advanced: per-program rules
+- disable Power Management options (turn off screen, hard drive...)
+- disconnect network/internet connections
+- allow unattended run of the close/restore wizard
+- remember window size/state of programs (minimized/maximized...)
+- use GetProcessShutdownParameters?
+- running object table: IFileIsInUse /IOleWindow::GetWindow()
+- plugins/scripts
+- automation
