@@ -72,7 +72,7 @@ rem  Compile each project separately because it seems Delphi carries some
 rem  settings (e.g. $APPTYPE) between projects if multiple projects are
 rem  specified on the command line.
 
-rem  Always use 'master' .cfg file when compiling from the command line to
+rem  Always use common .cfg file when compiling from the command line to
 rem  prevent user options from hiding compile failures in official builds.
 rem  Temporarily rename any user-generated .cfg file during compilation.
 
@@ -88,7 +88,8 @@ if errorlevel 1 goto failed
 set OLDCFGFILE=SmartClose.cfg
 
 :smartclose
-ren SmartClose.cfg.main SmartClose.cfg
+call %COMMONDIR%\Scripts\mycopy.bat ^
+    "%COMMONDIR%\Delphi\compiler.cfg" SmartClose.cfg
 if errorlevel 1 goto failed
 set CFGFILE=SmartClose.cfg
 "%DELPHIROOT%\bin\dcc32.exe" %DCC32OPTS% %1 ^
@@ -96,7 +97,7 @@ set CFGFILE=SmartClose.cfg
     -R"%DELPHIROOT%\lib" ^
     SmartClose.dpr
 if errorlevel 1 goto failed
-ren %CFGFILE% %CFGFILE%.main
+if not "%CFGFILE%"=="" del %CFGFILE%
 set CFGFILE=
 if not "%OLDCFGFILE%"=="" ren %OLDCFGFILE%.%RND% %OLDCFGFILE%
 set OLDCFGFILE=
@@ -106,7 +107,7 @@ cd ..
 goto exit
 
 :failed
-if not "%CFGFILE%"=="" ren %CFGFILE% %CFGFILE%.main
+if not "%CFGFILE%"=="" del %CFGFILE%
 if not "%OLDCFGFILE%"=="" ren %OLDCFGFILE%.%RND% %OLDCFGFILE%
 echo *** FAILED ***
 cd ..
