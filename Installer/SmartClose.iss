@@ -60,6 +60,8 @@ SolidCompression=false
 WizardImageFile=compiler:WizModernImage-IS.bmp
 WizardSmallImageFile=compiler:WizModernSmallImage-IS.bmp
 DisableProgramGroupPage=auto
+DisableWelcomePage=false
+AlwaysShowDirOnReadyPage=true
 
 [Tasks]
 ; Name: fileassoc; Description: &Associate system snapshot files (.scss) with SmartClose
