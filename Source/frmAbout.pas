@@ -49,18 +49,14 @@ type
     lblWebsite: TLabel;
     Label8: TLabel;
     lblMail: TLabel;
-    paCredits: TPanel;
     btnOK: TButton;
-    tmrScroll: TTimer;
-    lblCredits: TLabel;
+    txtCredits: TMemo;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure btnOKClick(Sender: TObject);
     procedure lblMailClick(Sender: TObject);
     procedure lblWebsiteClick(Sender: TObject);
-    procedure FormHide(Sender: TObject);
-    procedure tmrScrollTimer(Sender: TObject);
     procedure btnSysInfoClick(Sender: TObject);
   private
     { Private declarations }
@@ -84,12 +80,18 @@ const
   gREGVALSYSINFO = 'PATH';
   SYSINFOEXE = 'MSINFO32.EXE';
 
-  CreditsHeader = '============= With special thanks to: =============' + CrLf2;
-  CreditsLine = '=========================================';
-  CreditsEnd = CrLf + CreditsLine + CrLf + 'The end' + CrLf + CreditsLine + CrLf2;
+  ThanksHeader = '=========== With special thanks to: ===========' + CrLf2;
+  CreditsLine = '=====================================';
   CreditSep = CrLf + '-----------' + CrLf;
-  Credits =
-      CreditsHeader + CrLf +
+  Credits = CrLf + 
+      'This software is based, in part, on the work of Anders Melander for the ' +
+      'TGIFImage component' + CrLf +
+      'http://melander.dk/delphi/gifimage' + CrLf + CreditSep + CrLf +
+      'Contains portions of Common Code Utilities by Tim De Baets' + CrLf +
+      'Copyright © 2016 Tim De Baets' + CrLf +
+      'Source code available under the Apache License version 2.0' + CrLf +
+      'https://github.com/tdebaets/common' + CrLf + CrLf2 +
+      ThanksHeader + CrLf +
       'Borland for Delphi 3' + CrLf + CreditSep + CrLf +
       'Jordan Russell and Martijn Laan for the best ' + CrLf +
       'installer available: Inno Setup, and Bjørnar Henden for' + CrLf +
@@ -123,7 +125,7 @@ const
       'Jim Kueneman for his PIDL code' + CrLf + CreditSep + CrLf +
       'Jonathan De Mey for beta testing SmartClose' + CrLf + CreditSep + CrLf +
       'And last but not least: you, for downloading my program' + CrLf2 +
-      'Thanks!' + CrLf + CreditsEnd;
+      'Thanks!';
 
 
 procedure TAboutFrm.FormClose(Sender: TObject; var Action: TCloseAction);
@@ -140,27 +142,22 @@ var
 begin
   SetFormFont(Self, BaseUnitX, BaseUnitY);
   //InitFormFont(Self);
-  SetFontNameSize(lblCredits.Font, FormFont2, 11, FormFont2Alt, 11);
-  SetFontNameSize(lblCredits.Font, FormFont2, 18, FormFont2Alt, 19);
   SetFontNameSize(lblMail.Font, FormFont, 8, '', 8);
   SetFontNameSize(lblWebsite.Font, FormFont, 8, '', 8);
-  SetFontNameSize(lblCredits.Font, FormFont2, 8, FormFont2Alt, 10);
+  SetFontNameSize(txtCredits.Font, FormFont2, 8, FormFont2Alt, 10);
   Icon.ReleaseHandle;
   Icon.Handle := LoadIcon(HInstance, PChar(4));
   Ico.LoadFromResourceName('MAINICON', 48);
   lblVersion.Caption := 'Version ' + GetAppVer;
   lblMail.Cursor := crHand;
   lblWebsite.Cursor := crHand;
-  lblCredits.Caption := Credits;
-  lblCredits.Width := paCredits.Width - 4;
-  lblCredits.Top := paCredits.Height - 20;
+  txtCredits.Text := Credits;
 end;
 
 procedure TAboutFrm.FormShow(Sender: TObject);
 begin
   Application.Title := Caption;
   Application.Icon := Self.Icon;
-  tmrScroll.Enabled := True;
 end;
 
 procedure TAboutFrm.btnOKClick(Sender: TObject);
@@ -177,24 +174,6 @@ end;
 procedure TAboutFrm.lblWebsiteClick(Sender: TObject);
 begin
   ExecuteFile(lblWebsite.Caption + '/', '', '', SW_SHOWNORMAL);
-end;
-
-procedure TAboutFrm.FormHide(Sender: TObject);
-begin
-  tmrScroll.Enabled := False;
-end;
-
-procedure TAboutFrm.tmrScrollTimer(Sender: TObject);
-{var
-  Point: TPoint;}
-begin
-  {if GetCursorPos(Point) then begin
-    if WindowFromPoint(Point) = paCredits.Handle then
-      Exit;
-  end}
-  paCredits.ScrollBy(0, -1);
-  If lblCredits.Top + lblCredits.Height < 0 then
-    lblCredits.Top := paCredits.Height;
 end;
 
 function GetSysInfoPath: String;

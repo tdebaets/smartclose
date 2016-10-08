@@ -4,7 +4,7 @@ object AboutFrm: TAboutFrm
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = 'About SmartClose'
-  ClientHeight = 377
+  ClientHeight = 389
   ClientWidth = 421
   Color = clBtnFace
   Font.Charset = ANSI_CHARSET
@@ -17,7 +17,6 @@ object AboutFrm: TAboutFrm
   Scaled = False
   OnClose = FormClose
   OnCreate = FormCreate
-  OnHide = FormHide
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
@@ -25,7 +24,7 @@ object AboutFrm: TAboutFrm
     Left = 12
     Top = 6
     Width = 397
-    Height = 331
+    Height = 343
     TabOrder = 0
     object Label1: TLabel
       Left = 76
@@ -160,35 +159,24 @@ object AboutFrm: TAboutFrm
         OnClick = lblMailClick
       end
     end
-    object paCredits: TPanel
-      Left = 8
-      Top = 234
-      Width = 377
-      Height = 85
-      BevelOuter = bvNone
-      BorderStyle = bsSingle
-      FullRepaint = False
+    object txtCredits: TMemo
+      Left = 12
+      Top = 236
+      Width = 373
+      Height = 93
+      Alignment = taCenter
+      Color = clBtnFace
+      Lines.Strings = (
+        'txtCredits')
+      ReadOnly = True
+      ScrollBars = ssVertical
       TabOrder = 2
-      object lblCredits: TLabel
-        Left = 0
-        Top = 0
-        Width = 54
-        Height = 13
-        Alignment = taCenter
-        Caption = 'lblCredits'
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -11
-        Font.Name = 'Verdana'
-        Font.Style = []
-        ParentFont = False
-        ShowAccelChar = False
-      end
+      WantReturns = False
     end
   end
   object btnSysInfo: TButton
     Left = 280
-    Top = 345
+    Top = 357
     Width = 129
     Height = 23
     Caption = 'System Information...'
@@ -197,7 +185,7 @@ object AboutFrm: TAboutFrm
   end
   object btnOK: TButton
     Left = 196
-    Top = 345
+    Top = 357
     Width = 75
     Height = 23
     Cancel = True
@@ -205,12 +193,5 @@ object AboutFrm: TAboutFrm
     Default = True
     TabOrder = 1
     OnClick = btnOKClick
-  end
-  object tmrScroll: TTimer
-    Enabled = False
-    Interval = 40
-    OnTimer = tmrScrollTimer
-    Left = 52
-    Top = 342
   end
 end
