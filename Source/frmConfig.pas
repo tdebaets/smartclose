@@ -158,36 +158,30 @@ begin
     cmbTarget.Images := Images;
     Ico := TIcon.Create;
     try
-      Ico.ReleaseHandle;
       Ico.Handle := LoadIcon(HInstance, 'MAINICON');
       ImageIdx := Images.AddIcon(Ico);
       shGeneral.ImageIndex := ImageIdx;
       ItemIdx := cmbTarget.Items.Add('SmartClose');
       cmbTarget.ImageIndex[ItemIdx] := ImageIdx;
-      Ico.ReleaseHandle;
       Ico.Handle := LoadIcon(HInstance, PChar(1));
       ImageIdx := Images.AddIcon(Ico);
       shCloseProgs.ImageIndex := ImageIdx;
       ItemIdx := cmbTarget.Items.Add('SmartClose - Close Programs');
       cmbTarget.ImageIndex[ItemIdx] := ImageIdx;
-      Ico.ReleaseHandle;
       Ico.Handle := LoadIcon(HInstance, PChar(2));
       ImageIdx := Images.AddIcon(Ico);
       shRestore.ImageIndex := ImageIdx;
       ItemIdx := cmbTarget.Items.Add('SmartClose - Restore Snapshot');
       cmbTarget.ImageIndex[ItemIdx] := ImageIdx;
-      Ico.ReleaseHandle;
       Ico.Handle := LoadIcon(HInstance, PChar(3));
       ImageIdx := Images.AddIcon(Ico);
       ItemIdx := cmbTarget.Items.Add('SmartClose - Settings');
       cmbTarget.ImageIndex[ItemIdx] := ImageIdx;
-      Ico.ReleaseHandle;
       Ico.Handle := LoadIcon(HInstance, PChar(4));
       ImageIdx := Images.AddIcon(Ico);
       ItemIdx := cmbTarget.Items.Add('SmartClose - About');
       cmbTarget.ImageIndex[ItemIdx] := ImageIdx;
       if IsWinNT then begin
-        Ico.ReleaseHandle;
         Ico.Handle := LoadIcon(HInstance, PChar(13));
         ImageIdx := Images.AddIcon(Ico);
         shServices.ImageIndex := ImageIdx;

@@ -1615,22 +1615,18 @@ begin
   try
     imgsTasks.AddIcon(Icon);
     imgsTasksLarge.AddIcon(Icon);
-    Ico.ReleaseHandle;
     Ico.Handle := LoadIcon(hInstance, PChar(11));
     imgsTasks.AddIcon(Ico);
     imgsTasksLarge.AddIcon(Ico);
-    Ico.ReleaseHandle;
     Ico.Handle := LoadIcon(hInstance, PChar(12));
     imgsTasks.AddIcon(Ico);
     imgsTasksLarge.AddIcon(Ico);
-    Ico.ReleaseHandle;
     if IsWinNT then
       Ico.Handle := LoadIcon(hInstance, PChar(13))
     else
       Ico.Handle := LoadIcon(hInstance, PChar(14));
     imgsTasks.AddIcon(Ico);
     imgsTasksLarge.AddIcon(Ico);
-    Ico.ReleaseHandle;
     Ico.Handle := LoadIcon(hInstance, PChar(5));
     imgsTasks.AddIcon(Ico);
     imgsTasksLarge.AddIcon(Ico);
@@ -1641,16 +1637,12 @@ begin
   imgProtect.Picture.Icon.Handle := LoadIcon(HInstance, PChar(17));
   Ico := TIcon.Create;
   try
-    Ico.ReleaseHandle;
     Ico.Handle := LoadIcon(hInstance, PChar(6));
     imgsProgs.AddIcon(Ico);
-    Ico.ReleaseHandle;
     Ico.Handle := LoadIcon(hInstance, PChar(19));
     imgsProgs.AddIcon(Ico);
-    Ico.ReleaseHandle;
     Ico.Handle := LoadIcon(hInstance, PChar(20));
     imgsProgs.AddIcon(Ico);
-    Ico.ReleaseHandle;
     Ico.Handle := LoadIcon(hInstance, PChar(7));
     imgsProgs.AddIcon(Ico);
   finally
