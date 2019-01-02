@@ -2,7 +2,7 @@
  *
  *            SmartClose
  *
- *            Copyright (c) 2016 Tim De Baets
+ *            Copyright (c) 2016-2018 Tim De Baets
  *
  ****************************************************************************
  *
