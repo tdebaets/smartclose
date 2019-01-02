@@ -37,4 +37,4 @@ SmartClose has been written in Borland Delphi 4. This means that in order to bui
 License
 -------
 
-SmartClose is Copyright © 2016-2017 Tim De Baets. It is licensed under the Apache License version 2.0, see [LICENSE](LICENSE) for details.
+SmartClose is Copyright © 2016-2018 Tim De Baets. It is licensed under the Apache License version 2.0, see [LICENSE](LICENSE) for details.
